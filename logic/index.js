@@ -15,8 +15,44 @@ require([
   GraphicsLayer,
   Graphic
 ) {
-  //esriConfig.apiKey = apiKey;
   esriConfig.apiKey = apiKey;
+
+  const template = {
+    title: "FEATURE INFO TITLE",
+    content: "<p>bla bla bla bla bla bla bla bla bla bla bla bla</p>",
+  };
+
+  var renderer = {
+    type: "simple", // autocasts as new SimpleRenderer()
+    symbol: {
+      type: "simple-fill", // autocasts as new SimpleFillSymbol()
+      color: [255, 128, 0, 0.5],
+      outline: {
+        // autocasts as new SimpleLineSymbol()
+        width: 1,
+        color: "black",
+      },
+    },
+  };
+
+  const geojsonLayer = new GeoJSONLayer({
+    url: "data/data.json",
+    popupTemplate: template,
+    renderer: renderer, //optional
+  });
+
+  const FirstMap = new Map({
+    basemap: "gray-vector",
+    layers: [geojsonLayer],
+  });
+
+  const FirstView = new MapView({
+    container: "first-map",
+    center: [-3.703339, 40.416729],
+    zoom: 4,
+    map: FirstMap,
+  });
+
   // Search widget which includes the locator. We will get the location from the results.
   const search = new Search({
     container: document.getElementById("search-box"),

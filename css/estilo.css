@@ -2,20 +2,6 @@ body {
   background-color: #e6e6e6;
 }
 
-/* .listEl {
-  border: 1px solid black;
-}
-
-#map {
-  height: 400px;
-  width: 1000px;
-  padding-bottom: 20px;
-}
-
-#map-button-container {
-  display: flex;
-} */
-
 #buttons-box button {
   background: white;
   height: 32px;
@@ -27,12 +13,12 @@ body {
   color: #2e2e2e;
   background-color: #f3f3f3;
 }
-.hiddenMobile{
+.hiddenMobile {
   display: none;
 }
 
 @media only screen and (min-width: 768px) {
-  .hiddenMobile{
+  .hiddenMobile {
     display: block;
   }
 }
